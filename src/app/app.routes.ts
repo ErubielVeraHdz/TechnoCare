@@ -40,27 +40,22 @@ export const routes: Routes = [
         component:FormularioDispositivoComponent
     },
     {
-        path:"admin",
-        component:AdminComponent,
-        children:[
-            {
-                path:"clientes",
-                component:ClientesComponent
-            },
-            {
-                path:"equipos",
-                component:EquiposComponent
-            },
-            {
-                path:"serviciosAdmin",
-                component: ServiciosAdminComponent
-            },
-            {
-                path:"resumen",
-                component:ResumenComponent
-            }
-        ]
-        }
+        path:"resumen",
+                component:ResumenComponent,
+        
+        },
+        {
+            path:"clientes",
+            component:ClientesComponent
+        },
+        {
+            path:"equipos",
+            component:EquiposComponent
+        },
+        {
+            path:"serviciosAdmin",
+            component: ServiciosAdminComponent
+        },
          
         
 ];
