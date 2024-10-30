@@ -1,0 +1,36 @@
+
+
+<div class="resumen-container">
+  <div class="sidebar">
+    <ul>
+      <li><a routerLink="resumen" routerLinkActive="active">Resumen</a></li>
+      <li><a routerLink="serviciosAdmin" routerLinkActive="active">Servicios</a></li>
+      <li><a routerLink="clientes" routerLinkActive="active">Clientes</a></li>
+      <li><a routerLink="equipos" routerLinkActive="active">Equipos</a></li>
+   </ul>
+   <router-outlet></router-outlet>
+   
+  </div>
+  <div class="breadcrumb-container">
+    <div class="breadcrumb">
+        <a href="#" class="breadcrumb-item dashboard">
+            <i class="icon-dashboard"></i>
+            Dashboard
+        </a>
+    <h2 class="resumen-header">Sistema de servicios técnicos</h2>
+    <ul class="resumen-lista">
+      <li class="resumen-item">
+        <img src="equipos.png" alt="Icono de equipos" class="resumen-icono"> 
+        Resumen de equipos: 1
+      </li>
+      <li class="resumen-item">
+        <img src="clientes.png" alt="Icono de clientes" class="resumen-icono"> 
+        Resumen de clientes: 2
+      </li>
+      <li class="resumen-item">
+        <img src="servicos.png" alt="Icono de servicios" class="resumen-icono"> 
+        Resumen de servicios semanales: 0
+      </li>
+    </ul>
+  </div>
+  

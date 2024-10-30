@@ -1,0 +1,237 @@
+.resumen-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .resumen-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .resumen-lista {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .resumen-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin: 10px 0;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .resumen-item:hover {
+    background-color: #d1d1d1;
+  }
+  
+  .resumen-icono {
+    width: 10%;
+    height: auto;
+    display: flex;
+    margin-right: 10px;
+  }
+  /* Barra lateral */
+.sidebar {
+  width: 200px;
+  background-color: #00264d;
+  color: white;
+  min-height: 100vh; /* Esto hace que la barra se extienda con el contenido */
+  position: fixed;
+  top: 60px; /* Ajusta esta distancia según la altura de tu barra de navegación */
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  width: 100%;
+}
+
+.sidebar ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  text-align: center;
+}
+
+.sidebar ul li a:hover {
+  background-color: #005b96;
+}
+
+/* Ajustes para el contenedor principal */
+.main-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.main-content {
+  margin-left: 200px; /* Deja espacio para la barra lateral */
+  padding: 20px;
+  width: calc(100% - 200px); /* Ajusta el ancho */
+  margin-top: 60px; /* Para alinearse con la barra lateral */
+}
+
+/* Estilos generales */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.breadcrumb-container {
+  text-align: center;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breadcrumb-item {
+  color: #007bff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item.services {
+  color: #666;
+}
+
+.breadcrumb-item:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  margin: 0 8px;
+  color: #666;
+}
+
+.icon-dashboard::before {
+  content: '\1F3E0';
+  margin-right: 5px;
+}
+
+.icon-services::before {
+  content: '\26D1';
+  margin-right: 5px;
+}
+
+.btn-entregado {
+  background-color: #F39800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+  float: left;
+}
+.btn-entregado:before {
+  content: "✔";
+  margin-right: 8px;
+}
+
+.servicios-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.servicios-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.servicios-tabla th,
+.servicios-tabla td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.servicios-tabla th {
+  background-color: #240159;
+  color: #fff;
+}
+
+.btn-editar {
+  background-color: #FFD700;
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.btn-eliminar {
+  background-color: #FF0000;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-editar:hover {
+  background-color: #FFC107;
+}
+
+.btn-eliminar:hover {
+  background-color: #D32F2F;
+}
+
+/* Ajuste de estilos heredados */
+header {
+  background-color: #240159;
+}
+
+.navbar {
+  background-color: #240159 !important;
+}
+
+.navbar-nav {
+  padding: 1.5%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.img-1 {
+  width: 5%;
+  height: auto;
+  display: flex;
+}
