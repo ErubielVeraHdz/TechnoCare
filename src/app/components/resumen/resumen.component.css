@@ -1,0 +1,49 @@
+.resumen-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .resumen-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .resumen-lista {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .resumen-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin: 10px 0;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .resumen-item:hover {
+    background-color: #d1d1d1;
+  }
+  
+  .resumen-icono {
+    width: 10%;
+    height: auto;
+    display: flex;
+    margin-right: 10px;
+  }
+  
