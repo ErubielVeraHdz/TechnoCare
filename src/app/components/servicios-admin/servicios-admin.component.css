@@ -1,0 +1,87 @@
+.servicios-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .servicios-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .servicios-tabla th,
+  .servicios-tabla td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .servicios-tabla th {
+    background-color: #240159;
+    color: #fff;
+  }
+  
+  .btn-editar {
+    background-color: #FFD700; /* Amarillo */
+    color: #000;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .btn-eliminar {
+    background-color: #FF0000; /* Rojo */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-editar:hover {
+    background-color: #FFC107; /* Un tono más claro de amarillo */
+  }
+  
+  .btn-eliminar:hover {
+    background-color: #D32F2F; /* Un tono más oscuro de rojo */
+  }
+  
+  /* Ajuste de estilos heredados */
+  header {
+    background-color: #240159;
+  }
+  
+  .navbar {
+    background-color: #240159 !important;
+  }
+  
+  .navbar-nav {
+    padding: 1.5%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .img-1 {
+    width: 5%;
+    height: auto;
+    display: flex;
+  }
+  .btn-entregado {
+    background-color: #F39800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px; /* Espaciado interno reducido */
+    font-size: 12px; /* Tamaño del texto más pequeño */
+    font-weight: bold;
+    display: inline-block;
+    cursor: pointer;
+    float: left; /* Esto lo coloca a la izquierda */
+}
+.btn-entregado:before {
+  content: "✔"; /* Icono de check */
+  margin-right: 8px; /* Espacio entre el check y el texto */
+}
