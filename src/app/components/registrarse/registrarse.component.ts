@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './registrarse.component.html',
-  styleUrls: ['./registrarse.component.css'] // Corregido, debe ser styleUrls
+  styleUrls: ['./registrarse.component.css']
 })
 export class RegistrarseComponent {
   registroForm: FormGroup;
