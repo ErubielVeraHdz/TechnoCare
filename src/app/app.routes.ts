@@ -13,48 +13,17 @@ import { ServiciosAdminComponent } from './servicios-admin/servicios-admin.compo
 import { ServiciosComponent } from './components/servicios/servicios.component';
 
 export const routes: Routes = [
-    { path: "", component: HomeComponent },
-    {
-        path: "header",
-        component: HeaderMenuComponent
-    },
-    {
-        path: "nosotros",
-        component: NosotrosComponent
-    },
-    {
-        path: "servicios",
-        component: ServiciosComponent
-    },
-    {
-        path: "registrarse",
-        component: RegistrarseComponent
-    },
-    {
-        path: "iniciar sesion",
-        component: LoginComponent
-    },
-    {
-        path: "registrar-dispositivo",
-        component: FomularioDispositivoComponent
-    },
-    {
-        path: "resumen",
-        component: ResumenComponent,
-
-    },
-    {
-        path: "clientes",
-        component: ClientesComponent
-    },
-    {
-        path: "equipos",
-        component: EquiposComponent
-    },
-    {
-        path: "serviciosAdmin",
-        component: ServiciosAdminComponent
-    },
-
-
+    { path: "home", component: HomeComponent },
+    { path: "header", component: HeaderMenuComponent },
+    { path: "nosotros", component: NosotrosComponent },
+    { path: "servicios", component: ServiciosComponent },
+    { path: "registrarse", component: RegistrarseComponent },
+    { path: "iniciar sesion", component: LoginComponent },
+    { path: "registrar-dispositivo", component: FomularioDispositivoComponent },
+    { path: "resumen", component: ResumenComponent },
+    { path: "clientes", component: ClientesComponent },
+    { path: "equipos", component: EquiposComponent },
+    { path: "serviciosAdmin", component: ServiciosAdminComponent },
+    { path: "", redirectTo: "home", pathMatch: "full" },
 ];
+
