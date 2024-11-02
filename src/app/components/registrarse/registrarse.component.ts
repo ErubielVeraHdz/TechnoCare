@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './registrarse.component.html',
-  styleUrls: ['./registrarse.component.css']
+  styleUrls: ['./registrarse.component.css'] // Corregido, debe ser styleUrls
 })
 export class RegistrarseComponent {
   registroForm: FormGroup;
@@ -31,4 +31,3 @@ export class RegistrarseComponent {
     }
   }
 }
-
