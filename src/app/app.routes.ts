@@ -9,8 +9,10 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { ResumenComponent } from './components/resumen/resumen.component';
 import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
-import { ServiciosAdminComponent } from './servicios-admin/servicios-admin.component';
+import { ServiciosAdminComponent } from './components/servicios-admin/servicios-admin.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
+import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
+import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 
 export const routes: Routes = [
     { path: "home", component: HomeComponent },
@@ -24,6 +26,9 @@ export const routes: Routes = [
     { path: "clientes", component: ClientesComponent },
     { path: "equipos", component: EquiposComponent },
     { path: "serviciosAdmin", component: ServiciosAdminComponent },
+    { path: "adminhome", component: AdminComponent },
+    { path: "adminmenu", component: HeaderAdminComponent },
+    { path: "homeadmin", component: HomeAdminComponent},
     { path: "", redirectTo: "home", pathMatch: "full" },
 ];
 

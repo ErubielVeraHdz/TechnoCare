@@ -27,17 +27,19 @@
                 <a class="nav-link active" aria-current="page" href="#">INICIO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" routerLink="nosotros">NOSOTROS</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="resumen">RESUMEN</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" routerLinkActive="active" routerLink="servicios" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  SERVICIOS
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" routerLinkActive="active" routerLink="registrar-dispositivo">Registro de
-                      equipo</a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="servicios">SERVICIOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="clientes">CLIENTES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="equipos">EQUIPOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="empleados">PERSONAL</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -52,9 +54,6 @@
                   <ng-container *ngIf="authService.isAuthenticated">
                     <li><a class="dropdown-item" routerLink="perfil">Perfil</a></li>
                     <li><a class="dropdown-item" (click)="logout()">Cerrar sesión</a></li>
-                    <ng-container *ngIf="authService.getUser().tipo === 1">
-                      <li><a class="dropdown-item" routerLink="admin">Admin Dashboard</a></li>
-                    </ng-container>
                   </ng-container>
                 </ul>
               </li>

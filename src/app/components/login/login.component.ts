@@ -1,7 +1,9 @@
+// login.component.ts
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink} from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthserviceService } from '../../services/authservice.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,11 @@ import { RouterLink} from '@angular/router';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthserviceService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       contrasena: ['', Validators.required]
@@ -21,12 +27,16 @@ export class LoginComponent {
   }
 
   onLogin() {
+    console.log('Intentando iniciar sesión...'); // Verificación
     if (this.loginForm.valid) {
-      console.log('Inicio de sesión válido:', this.loginForm.value);
-      // Manejo del envío de inicio de sesión
+      const tipoUsuario = this.loginForm.value.email === 'admin@example.com' ? 1 : 2;
+      this.authService.saveUser(this.loginForm.value.email, tipoUsuario);
+  
+      const redirectRoute = tipoUsuario === 1 ? '/adminhome' : '/home';
+      this.router.navigate([redirectRoute]);
     } else {
       console.log('Formulario de inicio de sesión inválido');
     }
-  }
+  }  
 }
 

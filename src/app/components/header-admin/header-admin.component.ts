@@ -4,13 +4,13 @@ import { AuthserviceService } from '../../services/authservice.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-header-menu',
+  selector: 'app-header-admin',
   standalone: true,
   imports: [RouterOutlet,RouterLink,RouterLinkActive,CommonModule],
-  templateUrl: './header-menu.component.html',
-  styleUrl: './header-menu.component.css'
+  templateUrl: './header-admin.component.html',
+  styleUrl: './header-admin.component.css'
 })
-export class HeaderMenuComponent {
+export class HeaderAdminComponent {
   constructor(public authService: AuthserviceService) {}
 
   logout() {
