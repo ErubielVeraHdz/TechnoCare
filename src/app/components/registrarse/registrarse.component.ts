@@ -37,7 +37,6 @@ export class RegistrarseComponent {
         type: 'Cliente'
       };
       
-      // Verifica los datos antes de enviarlos
       console.log('Datos a enviar al backend:', usuario);
       
       try {
