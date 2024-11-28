@@ -14,28 +14,33 @@ import { AuthserviceService } from '../../services/authservice.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  errorMessage: string = '';
 
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private authService: AuthserviceService,
     private router: Router
   ) {
-    this.loginForm = this.fb.group({
+    this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       contrasena: ['', Validators.required]
     });
   }
 
   onLogin() {
-    console.log('Intentando iniciar sesión...'); // Verificación
     if (this.loginForm.valid) {
-      const tipoUsuario = this.loginForm.value.email === 'admin@example.com' ? 1 : 2;
-      this.authService.saveUser(this.loginForm.value.email, tipoUsuario);
-  
-      const redirectRoute = tipoUsuario === 1 ? '/adminhome' : '/home';
-      this.router.navigate([redirectRoute]);
-    } else {
-      console.log('Formulario de inicio de sesión inválido');
+      const { email, contrasena } = this.loginForm.value;
+      
+      this.authService.login(email, contrasena).subscribe({
+        next: (response) => {
+          console.log('Login exitoso', response);
+          this.router.navigate(['/dashboard']); // O la ruta que desees después del login
+        },
+        error: (error) => {
+          console.error('Error en login', error);
+          this.errorMessage = error.error.mensaje || 'Error al iniciar sesión';
+        }
+      });
     }
   }  
 }

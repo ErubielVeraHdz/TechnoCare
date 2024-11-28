@@ -1,40 +1,108 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpUsuariosService } from '../../services/http-usuarios.service';
 
 @Component({
   selector: 'app-registrarse',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, HttpClientModule],
+  providers: [HttpUsuariosService],
   templateUrl: './registrarse.component.html',
   styleUrls: ['./registrarse.component.css']
 })
+
 export class RegistrarseComponent {
   registroForm: FormGroup;
-  registroExitoso = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
-    this.registroForm = this.fb.group({
+  constructor(private formBuilder: FormBuilder) {
+    this.registroForm = this.formBuilder.group({
       nombre: ['', Validators.required],
-      departamento: [''],
+      apellido: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       telefono: [''],
       contrasena: ['', Validators.required]
     });
   }
 
-  onSubmit() {
+  async guardar() {
     if (this.registroForm.valid) {
-      this.registroExitoso = true;
-      console.log('Formulario válido:', this.registroForm.value);
-    } else {
-      console.log('Formulario inválido');
+      const usuario = {
+        name: this.registroForm.value.nombre,
+        lastname: this.registroForm.value.apellido,
+        email: this.registroForm.value.email,
+        phone: this.registroForm.value.telefono,
+        password: this.registroForm.value.contrasena,
+        type: 'Cliente'
+      };
+      
+      // Verifica los datos antes de enviarlos
+      console.log('Datos a enviar al backend:', usuario);
+      
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/usuarios', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(usuario)
+        });
+  
+        if (!response.ok) {
+          throw new Error(`HTTP status ${response.status}`);
+        }
+  
+        const data = await response.json();
+        console.log('Usuario registrado:', data);
+        alert('Usuario registrado con éxito');
+      } catch (error) {
+        if (error instanceof Error) {
+          console.error('Error al registrar usuario:', error);
+          alert(`Error al registrar usuario: ${error.message}`);
+        } else {
+          console.error('Error inesperado:', error);
+          alert('Error inesperado al registrar usuario');
+        }
+      }
     }
-  }
-
-  regresarHome() {
-    this.router.navigate(['/home']);
-  }
+  }  
 }
 
+
+/*export class RegistrarseComponent {
+  registroForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private httpusuarios: HttpUsuariosService) {
+    this.registroForm = this.formBuilder.group({
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      telefono: [''],
+      contrasena: ['', Validators.required]
+    });
+  }
+
+  guardar() {
+    if (this.registroForm.valid) {
+      const usuario = {
+        name: this.registroForm.value.nombre,
+        lastname: this.registroForm.value.apellido,
+        email: this.registroForm.value.email,
+        phone: this.registroForm.value.telefono,
+        password: this.registroForm.value.contrasena,
+        type: 'Cliente'
+      };
+
+      this.httpusuarios.registrarUsuario(usuario).subscribe(
+        response => {
+          console.log('Usuario registrado:', response);
+        },
+        error => {
+          console.error('Error al registrar usuario:', error);
+          alert(`Error: ${error.status} - ${error.message}`);
+        }
+      );
+    }
+  } 
+}*/

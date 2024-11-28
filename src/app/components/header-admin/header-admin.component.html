@@ -47,11 +47,11 @@
                   <img src="person.svg" alt="">
                 </a>
                 <ul class="dropdown-menu">
-                  <ng-container *ngIf="!authService.isAuthenticated">
+                  <ng-container *ngIf="">
                     <li><a class="dropdown-item" routerLink="registrarse">Registrarse</a></li>
                     <li><a class="dropdown-item" routerLink="iniciar sesion">Iniciar sesión</a></li>
                   </ng-container>
-                  <ng-container *ngIf="authService.isAuthenticated">
+                  <ng-container *ngIf="">
                     <li><a class="dropdown-item" routerLink="perfil">Perfil</a></li>
                     <li><a class="dropdown-item" (click)="logout()">Cerrar sesión</a></li>
                   </ng-container>

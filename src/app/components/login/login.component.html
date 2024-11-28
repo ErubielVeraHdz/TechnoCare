@@ -1,9 +1,15 @@
+<!-- login.component.html -->
 <div class="container">
     <div class="header">
         <h1>Iniciar Sesión</h1>
     </div>
     <div class="form-container">
         <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <!-- Mensaje de error general -->
+            <div class="error-message" *ngIf="errorMessage">
+                {{ errorMessage }}
+            </div>
+
             <div class="form-group">
                 <label for="email">Correo electrónico</label>
                 <input type="email" id="email" formControlName="email" />
@@ -27,5 +33,3 @@
         </div>
     </div>
 </div>
-
-

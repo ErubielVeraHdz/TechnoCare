@@ -14,6 +14,6 @@ export class HeaderMenuComponent {
   constructor(public authService: AuthserviceService) {}
 
   logout() {
-    this.authService.clearUser();
+    
   }
 }

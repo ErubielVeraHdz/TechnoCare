@@ -14,6 +14,6 @@ export class HeaderAdminComponent {
   constructor(public authService: AuthserviceService) {}
 
   logout() {
-    this.authService.clearUser();
+   
   }
 }
