@@ -49,11 +49,43 @@ export class FomularioDispositivoComponent {
     }
   }
 
-  onSubmit() {
-    if (this.dispositivoForm.valid) {
-      console.log('Formulario enviado:', this.dispositivoForm.value);
-    } else {
-      console.log('Formulario inválido');
+  async guardar() {
+    if(this.dispositivoForm.valid){
+      const dispositivos = {
+        dispositivo: this.dispositivoForm.value.dispositivo,
+        numserie: this.dispositivoForm.value.numeroSerie,
+        modelo: this.dispositivoForm.value.modelo,
+        descripcion: this.dispositivoForm.value.descripcion,
+        tipomto: this.dispositivoForm.value.tipoMantenimiento
+      };
+
+      console.log('Datos a enviar al backend:', dispositivos);
+
+      try{
+        const response = await fetch('http://127.0.0.1:8000/api/equipos', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }, 
+          body: JSON.stringify(dispositivos)
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP status ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Equipo registrado:', data);
+        alert('Equipo registrado con éxito');
+      }catch(error){
+        if (error instanceof Error) {
+          console.error('Error al registrar equipo:', error);
+          alert(`Error al registrar equipo: ${error.message}`);
+        } else {
+          console.error('Error inesperado:', error);
+          alert('Error inesperado al registrar equipo');
+        }
+      }
     }
   }
 }
