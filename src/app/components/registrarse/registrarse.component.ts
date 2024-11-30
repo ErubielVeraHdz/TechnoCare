@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpUsuariosService } from '../../services/http-usuarios.service';
 
 @Component({
   selector: 'app-registrarse',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, HttpClientModule],
-  providers: [HttpUsuariosService],
+  providers: [/*HttpUsuariosService*/],
   templateUrl: './registrarse.component.html',
   styleUrls: ['./registrarse.component.css']
 })
@@ -37,7 +36,7 @@ export class RegistrarseComponent {
         type: 'Cliente'
       };
       
-      console.log('Datos a enviar al backend:', usuario);
+      console.log('Datos a enviar:', usuario);
       
       try {
         const response = await fetch('http://127.0.0.1:8000/api/usuarios', {

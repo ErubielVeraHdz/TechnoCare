@@ -31,4 +31,3 @@ export const routes: Routes = [
     { path: "homeadmin", component: HomeAdminComponent},
     { path: "", redirectTo: "home", pathMatch: "full" },
 ];
-

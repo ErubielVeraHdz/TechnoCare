@@ -28,20 +28,16 @@ export class LoginComponent {
   }
 
   onLogin() {
-    if (this.loginForm.valid) {
-      const { email, contrasena } = this.loginForm.value;
-      
-      this.authService.login(email, contrasena).subscribe({
-        next: (response) => {
-          console.log('Login exitoso', response);
-          this.router.navigate(['/dashboard']); // O la ruta que desees después del login
-        },
-        error: (error) => {
-          console.error('Error en login', error);
-          this.errorMessage = error.error.mensaje || 'Error al iniciar sesión';
-        }
-      });
-    }
+    this.authService.login(this.loginForm.value.email, this.loginForm.value.contrasena).subscribe({
+      next: (response) => {
+        console.log('Login exitoso', response);
+        this.router.navigate(['/home']); // Cambia la ruta si es necesario
+      },
+      error: (error) => {
+        console.error('Error en login', error);
+        this.errorMessage = error.error.mensaje || 'Error al iniciar sesión';
+      }
+    });
   }  
 }
 

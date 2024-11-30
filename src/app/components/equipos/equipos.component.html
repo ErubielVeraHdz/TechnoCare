@@ -1,10 +1,10 @@
 <div class="main-content-wrapper">
   <div class="sidebar">
     <ul>
-      <li><a routerLink="admin" routerLinkActive="active">Resumen</a></li>
-      <li><a routerLink="admin" routerLinkActive="active">Servicios</a></li>
-      <li><a routerLink="admin" routerLinkActive="active">Clientes</a></li>
-      <li><a routerLink="cliente" routerLinkActive="active">Equipos</a></li>
+      <li><a href="/resumen">Resumen</a></li>
+      <li><a href="/serviciosAdmin">Servicios</a></li>
+      <li><a href="/clientes">Clientes</a></li>
+      <li><a href="/equipos">Equipos</a></li>
    </ul>
   </div>
   <div class="main-content">
@@ -25,84 +25,32 @@
       </div>
       <button class="btn-entregado">Terminados y Entregados</button>
       <table class="servicios-tabla">
+     
         <thead>
           <tr>
-            <th>Columna 1</th>
-            <th>Columna 2</th>
-            <th>Columna 3</th>
-            <th>Columna 4</th>
-            <th>Acciones</th>
+            <th scope="col">#</th>
+            <th scope="col">Dispositivo</th>
+            <th scope="col">Numero de serie</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Tipo de mantenimiento</th>
+            <th scope="col">Notificar</th>
+          <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <button class="btn-editar">Editar</button>
-              <button class="btn-eliminar">Eliminar</button>
-            </td>
-          </tr>
-          <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button class="btn-editar">Editar</button>
-                <button class="btn-eliminar">Eliminar</button>
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button class="btn-editar">Editar</button>
-                <button class="btn-eliminar">Eliminar</button>
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button class="btn-editar">Editar</button>
-                <button class="btn-eliminar">Eliminar</button>
-              </td>
-            </tr>
-
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button class="btn-editar">Editar</button>
-                <button class="btn-eliminar">Eliminar</button>
-              </td>
-
-
-
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button class="btn-editar">Editar</button>
-                <button class="btn-eliminar">Eliminar</button>
-              </td>
-
-
-
-            </tr>
+            @for (item of equipos; track item.id) {
+                <tr>
+                    <th scope="row">{{item.id}}</th>                    
+                    <td>{{item.dispositivo}}</td>
+                    <td>{{item.numserie}}</td>
+                    <td>{{item.modelo}}</td>
+                    <td>{{item.descripcion}}</td>
+                    <td>{{item.tipomto}}</td>            
+                    <td><button type="button" class="btn btn-primary" (click)="editar(item)">E</button></td>
+                    <td><button type="button" class="btn btn-danger" (click)="eliminar(item.id)">B</button></td> 
+                  </tr>           
+            }          
         </tbody>
       </table>
   </div>
