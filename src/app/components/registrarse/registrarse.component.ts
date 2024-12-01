@@ -35,9 +35,9 @@ export class RegistrarseComponent {
         password: this.registroForm.value.contrasena,
         type: 'Cliente'
       };
-      
+
       console.log('Datos a enviar:', usuario);
-      
+
       try {
         const response = await fetch('http://127.0.0.1:8000/api/usuarios', {
           method: 'POST',
@@ -46,11 +46,11 @@ export class RegistrarseComponent {
           },
           body: JSON.stringify(usuario)
         });
-  
+
         if (!response.ok) {
           throw new Error(`HTTP status ${response.status}`);
         }
-  
+
         const data = await response.json();
         console.log('Usuario registrado:', data);
         alert('Usuario registrado con éxito');
@@ -64,7 +64,7 @@ export class RegistrarseComponent {
         }
       }
     }
-  }  
+  }
 }
 
 

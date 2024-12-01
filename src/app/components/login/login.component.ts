@@ -30,14 +30,17 @@ export class LoginComponent {
   onLogin() {
     this.authService.login(this.loginForm.value.email, this.loginForm.value.contrasena).subscribe({
       next: (response) => {
-        console.log('Login exitoso', response);
-        this.router.navigate(['/home']); // Cambia la ruta si es necesario
+        const user = JSON.parse(localStorage.getItem('user') || '{}');
+        if (user.type === 'Administrador') {
+          this.router.navigate(['/resumen']);
+        } else {
+          this.router.navigate(['/home']);
+        }
       },
       error: (error) => {
-        console.error('Error en login', error);
         this.errorMessage = error.error.mensaje || 'Error al iniciar sesión';
-      }
+      },
     });
-  }  
+  } 
 }
 
