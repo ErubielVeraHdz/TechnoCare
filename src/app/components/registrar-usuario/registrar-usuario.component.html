@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="header">
+        <h1>Regístrate</h1>
+    </div>
+    <div class="form-container">
+        <form [formGroup]="registroForm" (submit)="guardar()">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" formControlName="nombre" autocomplete="given-name" />
+                <div *ngIf="registroForm.controls['nombre'].invalid && registroForm.controls['nombre'].touched">
+                    Campo obligatorio.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido(s)</label>
+                <input type="text" id="apellido" formControlName="apellido" autocomplete="family-name" />
+                <div *ngIf="registroForm.controls['apellido'].invalid && registroForm.controls['apellido'].touched">
+                    Campo obligatorio.
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="half-width">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" formControlName="email" autocomplete="email" />
+                    <div *ngIf="registroForm.controls['email'].invalid && registroForm.controls['email'].touched">
+                        Campo obligatorio y debe ser válido.
+                    </div>
+                </div>
+                <div class="half-width">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" formControlName="telefono" autocomplete="tel" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" formControlName="contrasena" autocomplete="new-password" />
+                <div *ngIf="registroForm.controls['contrasena'].invalid && registroForm.controls['contrasena'].touched">
+                    Campo obligatorio.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="type">Tipo de Usuario</label>
+                <select id="type" formControlName="type">
+                  <option value="Administrador">Administrador</option>
+                  <option value="Técnico">Técnico</option>
+                  <option value="Cliente">Cliente</option>
+                </select>
+              </div>
+            <button type="submit" [disabled]="registroForm.invalid">Registrarse</button>
+        </form>
+    </div>
+</div>
