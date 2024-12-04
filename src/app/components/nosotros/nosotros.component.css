@@ -1,3 +1,7 @@
+.row{
+    display: flex;
+}
+
 .img-nosotros{
     width: 100%;
     height: auto;

@@ -18,8 +18,9 @@ export class AuthserviceService {
 
     return this.http.post(`${this.apiUrl}/login`, body, { headers }).pipe(
       tap((response: any) => {
-        this.currentUser = response.user; // Asume que la API devuelve datos del usuario
+        this.currentUser = response.user;
         localStorage.setItem('user', JSON.stringify(this.currentUser));
+        localStorage.setItem('token', response.token); // Guardar token
       })
     );
   }
@@ -32,8 +33,13 @@ export class AuthserviceService {
     return this.currentUser;
   }
 
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
   logout(): void {
     this.currentUser = null;
     localStorage.removeItem('user');
+    localStorage.removeItem('token');
   }
 }

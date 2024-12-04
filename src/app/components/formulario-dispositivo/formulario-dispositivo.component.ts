@@ -50,34 +50,38 @@ export class FomularioDispositivoComponent {
   }
 
   async guardar() {
-    if(this.dispositivoForm.valid){
+    if (this.dispositivoForm.valid) {
+      const usuarioLogueado = localStorage.getItem('user');
+      const user = usuarioLogueado ? JSON.parse(usuarioLogueado) : null;
+  
       const dispositivos = {
         dispositivo: this.dispositivoForm.value.dispositivo,
         numserie: this.dispositivoForm.value.numeroSerie,
         modelo: this.dispositivoForm.value.modelo,
         descripcion: this.dispositivoForm.value.descripcion,
-        tipomto: this.dispositivoForm.value.tipoMantenimiento
+        tipomto: this.dispositivoForm.value.tipoMantenimiento,
+        nombreU: user ? user.name : 'Usuario Desconocido'
       };
-
+  
       console.log('Datos a enviar al backend:', dispositivos);
-
-      try{
+  
+      try {
         const response = await fetch('http://127.0.0.1:8000/api/equipos', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
-          }, 
+          },
           body: JSON.stringify(dispositivos)
         });
-
+  
         if (!response.ok) {
           throw new Error(`HTTP status ${response.status}`);
         }
-
+  
         const data = await response.json();
         console.log('Equipo registrado:', data);
         alert('Equipo registrado con éxito');
-      }catch(error){
+      } catch (error) {
         if (error instanceof Error) {
           console.error('Error al registrar equipo:', error);
           alert(`Error al registrar equipo: ${error.message}`);
@@ -88,4 +92,5 @@ export class FomularioDispositivoComponent {
       }
     }
   }
+    
 }

@@ -34,13 +34,13 @@ export class LoginComponent {
         if (user.type === 'Administrador') {
           this.router.navigate(['/resumen']);
         } else {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/home']);  // Cambia esta ruta por la adecuada para el cliente
         }
       },
       error: (error) => {
         this.errorMessage = error.error.mensaje || 'Error al iniciar sesión';
       },
     });
-  } 
+  }  
 }
 
