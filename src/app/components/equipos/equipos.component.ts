@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder,Validators } from '@angular/forms';
 import { HttpEquiposService } from '../../services/http-equipos.service';
+import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
+import { AuthserviceService } from '../../services/authservice.service';
+
 @Component({
   selector: 'app-equipos',
   standalone: true,
@@ -23,7 +26,7 @@ export class EquiposComponent implements OnInit {
   mensaje: any;
   equipoEditar: any = null;
 
-  constructor(private equipoService:HttpEquiposService){}
+  constructor(private equipoService:HttpEquiposService, public authService: AuthserviceService,  private router: Router){}
 
   ngOnInit(): void {
     this.equipoService.getEquipos().subscribe(data=>{
@@ -81,5 +84,10 @@ export class EquiposComponent implements OnInit {
 
   trackById(index: number, item: any) {
     return item.id;
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/home']);
   }
 }

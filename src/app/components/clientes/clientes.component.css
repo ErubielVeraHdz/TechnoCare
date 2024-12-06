@@ -1,7 +1,7 @@
 /* Barra lateral */
 .sidebar {
   width: 200px;
-  background-color: #00264d;
+  background-color: #240159;
   color: white;
   min-height: 100vh; /* Esto hace que la barra se extienda con el contenido */
   position: fixed;

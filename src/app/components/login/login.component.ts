@@ -28,6 +28,7 @@ export class LoginComponent {
   }
 
   onLogin() {
+
     this.authService.login(this.loginForm.value.email, this.loginForm.value.contrasena).subscribe({
       next: (response) => {
         const user = JSON.parse(localStorage.getItem('user') || '{}');

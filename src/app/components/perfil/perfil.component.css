@@ -1,0 +1,125 @@
+/* Contenedor principal del perfil */
+.perfil-container {
+  display: flex;
+  width: 100%;
+  padding: 15px; /* Reducir padding del contenedor */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Barra lateral */
+.sidebar {
+  width: 200px;
+  background-color: #00264d;
+  color: white;
+  min-height: 100vh;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  width: 100%;
+}
+
+.sidebar ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  text-align: center;
+}
+
+.sidebar ul li a:hover {
+  background-color: #005b96;
+}
+
+/* Contenedor del contenido principal */
+.main-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-left: 220px;
+  padding-top: 20px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px; /* Reducir espacio interior */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado del perfil */
+.perfil-header h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.perfil-header p {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Estilo de los campos del perfil */
+.perfil-info {
+  margin-top: 20px;
+}
+
+.perfil-item {
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: flex-start;
+  gap: 10px; /* Espacio entre label y input */
+  margin-bottom: 15px; /* Reducir margen inferior */
+}
+
+.perfil-item label {
+  font-size: 14px; /* Reducir tamaño de fuente */
+  width: 100px; /* Ancho fijo para alineación */
+  text-align: right; /* Alinear etiquetas a la derecha */
+}
+
+.perfil-item input {
+  font-size: 14px; /* Reducir tamaño de fuente */
+  padding: 8px; /* Reducir padding */
+  width: 200px; /* Ajustar el ancho del input */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+}
+
+.perfil-item input[disabled] {
+  background-color: #e0e0e0;
+}
+
+/* Botón de actualizar */
+.btn-editar {
+  font-size: 14px; /* Reducir tamaño del botón */
+  padding: 8px 16px; /* Compactar el tamaño del botón */
+  background-color: #240159;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-editar:hover {
+  background-color: #5f027c;
+}

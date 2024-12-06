@@ -33,6 +33,10 @@ export class AuthserviceService {
     return this.currentUser;
   }
 
+  obtenerUsuario(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/usuarios/${id}`);
+  }
+
   getToken(): string | null {
     return localStorage.getItem('token');
   }

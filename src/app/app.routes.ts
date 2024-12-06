@@ -12,8 +12,8 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ServiciosAdminComponent } from './components/servicios-admin/servicios-admin.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
-import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 export const routes: Routes = [
     { path: "home", component: HomeComponent },
@@ -29,7 +29,7 @@ export const routes: Routes = [
     { path: "serviciosAdmin", component: ServiciosAdminComponent },
     { path: "adminhome", component: AdminComponent },
     { path: "adminmenu", component: HeaderAdminComponent },
-    { path: "homeadmin", component: HomeAdminComponent},
+    { path: "perfil", component: PerfilComponent },
     { path: "registrarusuario", component: RegistrarUsuarioComponent},
     { path: "", redirectTo: "home", pathMatch: "full" },
 ];
