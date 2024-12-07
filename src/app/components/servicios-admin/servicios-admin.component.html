@@ -2,7 +2,7 @@
   <div class="sidebar">
     <ul>
       <li><a href="/resumen">Resumen</a></li>
-      <li><a href="/serviciosAdmin">Servicios</a></li>
+      <li><a href="/reportes">Servicios</a></li>
       <li><a href="/clientes">Clientes</a></li>
       <li><a href="/equipos">Equipos</a></li>
       <li><a routerLink="/registrarusuario">Agregar usuario</a></li>
@@ -13,7 +13,7 @@
   <div class="main-content">
       <!-- Contenido principal -->
       <div class="breadcrumb-container">
-        <h1>LISTA DE SERVICIOS</h1>
+        <h1>LISTA DE REPORTES DE SERVICIOS</h1>
           <div class="breadcrumb">
               <a href="#" class="breadcrumb-item dashboard">
                   <i class="icon-dashboard"></i>
@@ -30,79 +30,25 @@
       <table class="servicios-tabla">
         <thead>
           <tr>
-            <th>Columna 1</th>
-            <th>Columna 2</th>
-            <th>Columna 3</th>
-            <th>Columna 4</th>
-            <th>Acciones</th>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Notificar</th>
+            <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <button class="btn-editar">Editar</button>
-              <button class="btn-eliminar">Eliminar</button>
-            </td>
-          </tr>
-          <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button class="btn-editar">Editar</button>
-                <button class="btn-eliminar">Eliminar</button>
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button class="btn-editar">Editar</button>
-                <button class="btn-eliminar">Eliminar</button>
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button class="btn-editar">Editar</button>
-                <button class="btn-eliminar">Eliminar</button>
-              </td>
-            </tr>
-
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button class="btn-editar">Editar</button>
-                <button class="btn-eliminar">Eliminar</button>
-              </td>
-
-
-
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button class="btn-editar">Editar</button>
-                <button class="btn-eliminar">Eliminar</button>
-              </td>
-            </tr>
+            @for (item of reportes; track item.id) {
+                <tr>
+                    <th scope="row">{{item.id}}</th>                    
+                    <td>{{item.emailU}}</td>
+                    <td>{{item.equipID}}</td>
+                    <td>{{item.fail}}</td>
+                    <td>{{item.solution}}</td>
+                  </tr>           
+            }          
         </tbody>
       </table>
   </div>
