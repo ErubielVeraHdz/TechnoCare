@@ -1,59 +1,120 @@
 <div class="main-content-wrapper">
+  <!-- Sidebar -->
   <div class="sidebar">
     <ul>
-      <li><a href="/resumen">Resumen</a></li>
-      <li><a href="/serviciosAdmin">Servicios</a></li>
-      <li><a href="/clientes">Clientes</a></li>
-      <li><a href="/equipos">Equipos</a></li>
+      <li><a routerLink="/resumen">Resumen</a></li>
+      <li><a routerLink="/serviciosAdmin">Servicios</a></li>
+      <li><a routerLink="/clientes">Clientes</a></li>
+      <li><a routerLink="/equipos">Equipos</a></li>
       <li><a routerLink="/registrarusuario">Agregar usuario</a></li>
       <li><a (click)="logout()">Cerrar sesión</a></li>
-   </ul>
+    </ul>
   </div>
+
+  <!-- Contenido Principal -->
   <div class="main-content">
-      <!-- Contenido principal -->
-      <h1>LISTA DE EQUIPOS</h1>
-      <div class="breadcrumb-container">
-          <div class="breadcrumb">
-              <a href="#" class="breadcrumb-item dashboard">
-                  <i class="icon-dashboard"></i>
-                  Dashboard
-              </a>
-              <span class="separator"> / </span>
-              <span class="breadcrumb-item services">
-                  <i class="icon-services"></i>
-                  Servicios
-              </span>
-          </div>
+    <h1>Lista de Equipos</h1>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+      <div class="breadcrumb">
+        <a routerLink="/resumen" class="breadcrumb-item dashboard">
+          <i class="icon-dashboard"></i> Dashboard
+        </a>
+        <span class="separator"> / </span>
+        <span class="breadcrumb-item equipos">
+          <i class="icon-equipos"></i> Equipos
+        </span>
       </div>
-      <button class="btn-entregado">Terminados y Entregados</button>
-      <table class="servicios-tabla">
-     
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Dispositivo</th>
-            <th scope="col">Numero de serie</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Tipo de mantenimiento</th>
-            <th scope="col">Notificar</th>
+    </div>
+
+    <!-- Botón para Terminados y Entregados -->
+    <button class="btn-entregado">Terminados y Entregados</button>
+
+    <!-- Tabla de Equipos -->
+    <table class="servicios-tabla">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Dispositivo</th>
+          <th scope="col">Número de Serie</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Tipo de Mantenimiento</th>
+          <th scope="col">Notificar</th>
           <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-            @for (item of equipos; track item.id) {
-                <tr>
-                    <th scope="row">{{item.id}}</th>                    
-                    <td>{{item.dispositivo}}</td>
-                    <td>{{item.numserie}}</td>
-                    <td>{{item.modelo}}</td>
-                    <td>{{item.descripcion}}</td>
-                    <td>{{item.tipomto}}</td>            
-                    <td><button type="button" class="btn btn-primary" (click)="editar(item)">E</button></td>
-                    <td><button type="button" class="btn btn-danger" (click)="eliminar(item.id)">B</button></td> 
-                  </tr>           
-            }          
-        </tbody>
-      </table>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let equipo of equipos; trackBy: trackById">
+          <th scope="row">{{ equipo.id }}</th>
+          <td>{{ equipo.dispositivo }}</td>
+          <td>{{ equipo.numeroSerie }}</td>
+          <td>{{ equipo.modelo }}</td>
+          <td>{{ equipo.descripcion }}</td>
+          <td>{{ equipo.tipoMantenimiento }}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="abrirModalNotificacion(equipo)">
+              Notificar
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="editar(equipo)">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="eliminar(equipo.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal Flotante para Notificación -->
+<div class="modal-overlay" *ngIf="mostrarModal">
+  <div class="modal-content">
+    <h2>Enviar Reporte</h2>
+    <form [formGroup]="notificacionForm" (ngSubmit)="enviarReporte()">
+      <!-- Campo de Email -->
+      <div>
+        <label for="email">Correo Electrónico:</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Ingrese el correo electrónico"
+          required
+        />
+      </div>
+
+      <!-- ID del Equipo -->
+      <div>
+        <label for="idEquipo">ID del Equipo:</label>
+        <input id="idEquipo" type="text" formControlName="idEquipo" readonly />
+      </div>
+
+      <!-- Falla -->
+      <div>
+        <label for="falla">Falla:</label>
+        <input id="falla" type="text" formControlName="falla" readonly />
+      </div>
+
+      <!-- Solución -->
+      <div>
+        <label for="solucion">Solución:</label>
+        <textarea
+          id="solucion"
+          formControlName="solucion"
+          placeholder="Ingrese la solución"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Botones -->
+      <div class="modal-buttons">
+        <button type="submit" [disabled]="notificacionForm.invalid" class="btn btn-success">
+          Enviar Reporte
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cancelar</button>
+      </div>
+    </form>
   </div>
 </div>
