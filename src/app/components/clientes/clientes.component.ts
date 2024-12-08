@@ -28,16 +28,16 @@ export class ClientesComponent implements OnInit {
 
   constructor(private usuarioService:HttpUsuariosService, public authService: AuthserviceService,  private router: Router){}
 
-  ngOnInit(): void {
-    this.usuarioService.getUsuarios().subscribe(data=>{
-      this.usuarios = data;      
-    });      
-  }
-
   cargarUsuarios() {
     this.usuarioService.getUsuarios().subscribe(data => {
       this.usuarios = data;
     });
+  }
+
+  ngOnInit(): void {
+    this.usuarioService.getUsuarios().subscribe(data=>{
+      this.usuarios = data;      
+    });      
   }
 
    guardar() {

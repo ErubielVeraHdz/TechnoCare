@@ -26,7 +26,7 @@ export const routes: Routes = [
     { path: "resumen", component: ResumenComponent },
     { path: "clientes", component: ClientesComponent },
     { path: "equipos", component: EquiposComponent },
-    { path: "serviciosAdmin", component: ServiciosAdminComponent },
+    { path: "reportes", component: ServiciosAdminComponent },
     { path: "adminhome", component: AdminComponent },
     { path: "adminmenu", component: HeaderAdminComponent },
     { path: "perfil", component: PerfilComponent },
