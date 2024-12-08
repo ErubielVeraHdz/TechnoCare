@@ -42,7 +42,6 @@
           <th scope="col">Descripción</th>
           <th scope="col">Tipo de Mantenimiento</th>
           <th scope="col">Notificar</th>
-          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -55,13 +54,14 @@
           <td>{{ equipo.tipomto }}</td>
           <td>
             <button type="button" class="btn btn-primary" (click)="abrirModalNotificacion(equipo)">
-              Notificar
+              Listo
             </button>
-          </td>
+            <button type="button" class="btn btn-danger" (click)="eliminar(equipo.id)">Sin Reparo</button>
+          <!-- </td>
           <td>
             <button type="button" class="btn btn-primary" (click)="editar(equipo)">Editar</button>
             <button type="button" class="btn btn-danger" (click)="eliminar(equipo.id)">Eliminar</button>
-          </td>
+          </td> -->
         </tr>
       </tbody>
     </table>
