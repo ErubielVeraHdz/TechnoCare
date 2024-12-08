@@ -37,6 +37,10 @@ export class AuthserviceService {
     return this.http.get(`${this.apiUrl}/usuarios/${id}`);
   }
 
+  obtenerCorreo(email: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/usuarios/${email}`);
+  }
+
   getToken(): string | null {
     return localStorage.getItem('token');
   }

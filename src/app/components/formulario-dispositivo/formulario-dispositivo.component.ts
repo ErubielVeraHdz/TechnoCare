@@ -51,16 +51,19 @@ export class FomularioDispositivoComponent {
 
   async guardar() {
     if (this.dispositivoForm.valid) {
+      // Recuperar información del usuario logueado desde localStorage
       const usuarioLogueado = localStorage.getItem('user');
       const user = usuarioLogueado ? JSON.parse(usuarioLogueado) : null;
   
+      // Construir el objeto dispositivos incluyendo el email
       const dispositivos = {
         dispositivo: this.dispositivoForm.value.dispositivo,
         numserie: this.dispositivoForm.value.numeroSerie,
         modelo: this.dispositivoForm.value.modelo,
         descripcion: this.dispositivoForm.value.descripcion,
         tipomto: this.dispositivoForm.value.tipoMantenimiento,
-        nombreU: user ? user.name : 'Usuario Desconocido'
+        nombreU: user ? user.name : 'Usuario Desconocido', // Nombre del usuario
+        emailU: user ? user.email : 'Correo no disponible', // Correo del usuario
       };
   
       console.log('Datos a enviar al backend:', dispositivos);
@@ -92,5 +95,5 @@ export class FomularioDispositivoComponent {
       }
     }
   }
-    
+  
 }

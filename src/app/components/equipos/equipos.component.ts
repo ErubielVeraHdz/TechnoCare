@@ -102,6 +102,7 @@ export class EquiposComponent implements OnInit {
   abrirModalNotificacion(equipo: any) {
     this.equipoSeleccionado = equipo; // Guardar equipo seleccionado
     this.notificacionForm.patchValue({
+      email : equipo.emailU,
       idEquipo: equipo.id,
       falla: equipo.descripcion
     });
