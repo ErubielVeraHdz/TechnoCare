@@ -49,10 +49,10 @@
         <tr *ngFor="let equipo of equipos; trackBy: trackById">
           <th scope="row">{{ equipo.id }}</th>
           <td>{{ equipo.dispositivo }}</td>
-          <td>{{ equipo.numeroSerie }}</td>
+          <td>{{ equipo.numserie }}</td>
           <td>{{ equipo.modelo }}</td>
           <td>{{ equipo.descripcion }}</td>
-          <td>{{ equipo.tipoMantenimiento }}</td>
+          <td>{{ equipo.tipomto }}</td>
           <td>
             <button type="button" class="btn btn-primary" (click)="abrirModalNotificacion(equipo)">
               Notificar
