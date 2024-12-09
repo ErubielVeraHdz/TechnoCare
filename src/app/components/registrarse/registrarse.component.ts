@@ -33,7 +33,7 @@ export class RegistrarseComponent {
         email: this.registroForm.value.email,
         phone: this.registroForm.value.telefono,
         password: this.registroForm.value.contrasena,
-        type: 'Administrador'
+        type: 'Cliente'
       };
 
       console.log('Datos a enviar:', usuario);

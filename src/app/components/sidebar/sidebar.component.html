@@ -1,0 +1,20 @@
+<!-- Botón para abrir/cerrar el sidebar -->
+<button class="sidebar-toggle" (click)="toggleSidebar()">☰</button>
+
+<!-- Sidebar -->
+<div class="sidebar" [ngClass]="{'open': sidebarOpen}">
+  <ul>
+    <!-- Añadir (click) para prevenir que se cierre el sidebar al hacer clic en el enlace -->
+    <li><a routerLink="/resumen" routerLinkActive="active" (click)="keepSidebarOpen()">Resumen</a></li>
+    <li><a routerLink="/reportes" routerLinkActive="active" (click)="keepSidebarOpen()">Reportes</a></li>
+    <li><a routerLink="/clientes" routerLinkActive="active" (click)="keepSidebarOpen()">Clientes</a></li>
+    <li><a routerLink="/equipos" routerLinkActive="active" (click)="keepSidebarOpen()">Equipos</a></li>
+    <li><a routerLink="/registrarusuario" routerLinkActive="active" (click)="keepSidebarOpen()">Agregar usuario</a></li>
+    <li><a (click)="logout()">Cerrar sesión</a></li>
+  </ul>
+</div>
+
+<!-- Contenido principal -->
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>

@@ -15,6 +15,7 @@ import { HeaderAdminComponent } from './components/header-admin/header-admin.com
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 
+
 export const routes: Routes = [
     { path: "home", component: HomeComponent },
     { path: "header", component: HeaderMenuComponent },
@@ -31,5 +32,6 @@ export const routes: Routes = [
     { path: "adminmenu", component: HeaderAdminComponent },
     { path: "perfil", component: PerfilComponent },
     { path: "registrarusuario", component: RegistrarUsuarioComponent},
+    { path: "serviciosAdmin", component: ServiciosAdminComponent },
     { path: "", redirectTo: "home", pathMatch: "full" },
 ];

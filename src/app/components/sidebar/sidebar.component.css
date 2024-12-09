@@ -1,0 +1,71 @@
+/* Estilo para el sidebar */
+.sidebar {
+  width: 250px; /* Ampliamos ligeramente para mejor visualización */
+  background-color: #240159; /* Mantenemos el color original */
+  color: white;
+  min-height: 100vh;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alineamos los elementos a la izquierda */
+  padding-top: 30px; /* Ajustamos el padding superior para dar más espacio */
+  padding-left: 20px; /* Añadimos algo de margen a la izquierda */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Agregamos una sombra sutil para más profundidad */
+  transition: transform 0.3s ease; /* Animación suave */
+  transform: translateX(-100%); /* Inicialmente, el sidebar está oculto */
+}
+
+/* Cuando el sidebar está abierto */
+.sidebar.open {
+  transform: translateX(0); /* Cuando está abierto, el sidebar se desplaza a la izquierda */
+}
+
+/* Estilo de los elementos de la lista */
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  width: 100%;
+}
+
+.sidebar ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px; /* Ajustamos el padding para dar más espacio a los enlaces */
+  margin-bottom: 10px; /* Añadimos un margen entre los enlaces */
+  font-size: 16px; /* Fuente un poco más grande para mayor legibilidad */
+  border-radius: 5px; /* Bordes redondeados para un aspecto más suave */
+  transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+/* Efecto hover sobre los enlaces */
+.sidebar ul li a:hover {
+  background-color: #005b96; /* Mantenemos el color de hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Agregamos una sombra suave al pasar el cursor */
+}
+
+/* Estilo para el botón de toggle */
+.sidebar-toggle {
+  position: absolute;
+  top: 20px;  /* Ajusta este valor para mover el botón hacia abajo o hacia arriba */
+  left: 30px;  /* Ajusta este valor para mover el botón más a la izquierda */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 35px; /* Aumentamos un poco el tamaño del icono para mejor visibilidad */
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Efecto hover en el botón de toggle */
+.sidebar-toggle:hover {
+  color: #005b96; /* Cambiamos el color al pasar el mouse */
+}

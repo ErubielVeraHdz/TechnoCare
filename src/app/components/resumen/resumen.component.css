@@ -47,42 +47,7 @@
     margin-right: 10px;
   }
   /* Barra lateral */
-.sidebar {
-  width: 200px;
-  background-color: #00264d;
-  color: white;
-  min-height: 100vh; /* Esto hace que la barra se extienda con el contenido */
-  position: fixed;
-  top: 60px; /* Ajusta esta distancia según la altura de tu barra de navegación */
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-}
 
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.sidebar ul li {
-  width: 100%;
-}
-
-.sidebar ul li a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  padding: 15px;
-  text-align: center;
-}
-
-.sidebar ul li a:hover {
-  background-color: #005b96;
-}
 
 /* Ajustes para el contenedor principal */
 .main-content-wrapper {

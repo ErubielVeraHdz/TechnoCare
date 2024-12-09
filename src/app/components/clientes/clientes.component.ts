@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder,Validators } from '@angular/forms';
 import { HttpUsuariosService } from '../../services/http-usuarios.service';
 import { AuthserviceService } from '../../services/authservice.service';
-import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet, Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-clientes',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule, RouterModule],
   templateUrl: './clientes.component.html',
   styleUrl: './clientes.component.css'
 })

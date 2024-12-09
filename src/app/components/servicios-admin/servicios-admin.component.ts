@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthserviceService } from '../../services/authservice.service';
-import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet, Router, RouterModule } from '@angular/router';
 import { ReportesService } from '../../services/reportes.service';
+
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-servicios-admin',
   standalone: true,
-  imports: [],
+  imports: [ CommonModule, RouterModule],
   templateUrl: './servicios-admin.component.html',
   styleUrl: './servicios-admin.component.css'
 })
@@ -17,9 +19,7 @@ export class ServiciosAdminComponent {
   constructor(private reporteService:ReportesService, public authService: AuthserviceService,  private router: Router){}
 
   ngOnInit(): void {
-    this.reporteService.getReportes().subscribe(data=>{
-      this.reportes = data;      
-    });      
+    this.cargarReportes();     
   }
 
   cargarReportes() {

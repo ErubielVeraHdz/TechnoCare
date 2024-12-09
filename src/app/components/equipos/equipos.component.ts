@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpEquiposService } from '../../services/http-equipos.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthserviceService } from '../../services/authservice.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; 
+import { ReportesService } from '../../services/reportes.service';
+
 
 @Component({
   selector: 'app-equipos',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule,],
+  imports: [ReactiveFormsModule, CommonModule, CommonModule, RouterModule],
   templateUrl: './equipos.component.html',
   styleUrl: './equipos.component.css'
 })
@@ -117,14 +119,21 @@ export class EquiposComponent implements OnInit {
   // Enviar reporte de notificación
   enviarReporte() {
     if (this.notificacionForm.valid) {
-      console.log('Datos enviados:', this.notificacionForm.value);
-      // Lógica para enviar datos al backend
-      this.mensaje = 'Reporte enviado con éxito';
-      this.cerrarModal();
+      this.equipoService.createReporte(this.notificacionForm.value).subscribe(
+        (response: any) => {
+          console.log('Reporte guardado:', response);
+          this.mensaje = 'Reporte enviado con éxito';
+          this.cerrarModal();
+        },
+        (error: any) => {
+          console.error('Error al guardar el reporte:', error);
+        }
+      );
     } else {
       console.log('Formulario de notificación no válido');
     }
   }
+  
 
   trackById(index: number, item: any): number {
     return item.id; // Devuelve el ID del elemento para mejorar el rendimiento de *ngFor

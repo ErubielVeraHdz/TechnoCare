@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet, Router, RouterModule } from '@angular/router';
 import { AuthserviceService } from '../../services/authservice.service';
 import { HeaderAdminComponent } from "../header-admin/header-admin.component";
+;
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-resumen',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,  CommonModule, RouterModule],
   templateUrl: './resumen.component.html',
   styleUrl: './resumen.component.css'
 })

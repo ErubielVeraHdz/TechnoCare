@@ -1,15 +1,6 @@
 <div class="main-content-wrapper">
-  <div class="sidebar">
-    <ul>
-      <li><a href="/resumen">Resumen</a></li>
-      <li><a href="/reportes">Servicios</a></li>
-      <li><a href="/clientes">Clientes</a></li>
-      <li><a href="/equipos">Equipos</a></li>
-      <li><a routerLink="/registrarusuario">Agregar usuario</a></li>
-      <li><a (click)="logout()">Cerrar sesión</a></li>
+ 
 
-   </ul>
-  </div>
   <div class="main-content">
       <!-- Contenido principal -->
       <div class="breadcrumb-container">
@@ -43,8 +34,8 @@
                     <th scope="row">{{item.id}}</th>                    
                     <td>{{item.emailU}}</td>
                     <td>{{item.equipID}}</td>
-                    <td>{{item.fail}}</td>
-                    <td>{{item.solution}}</td>
+                    <td>{{item.Fail}}</td>
+                    <td>{{item.Solution}}</td>
                   </tr>           
             }          
         </tbody>
