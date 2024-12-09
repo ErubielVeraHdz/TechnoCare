@@ -24,13 +24,22 @@ export class AuthserviceService {
       })
     );
   }
+  getEquipos(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/equipos/`);
+  }
 
-  getLoggedInUser(): any {
-    if (!this.currentUser) {
-      const storedUser = localStorage.getItem('user');
-      this.currentUser = storedUser ? JSON.parse(storedUser) : null;
-    }
-    return this.currentUser;
+  getUsuarios(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/usuarios/`);
+  }
+
+
+  getReportes(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/reportes/`);
+  }
+
+  getLoggedInUser() {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
   }
 
   obtenerUsuario(id: number): Observable<any> {

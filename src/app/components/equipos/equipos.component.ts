@@ -61,6 +61,7 @@ export class EquiposComponent implements OnInit {
     });
   }
 
+
   guardar() {
     if (this.equipoEditar) {
       // Si estamos editando, actualizamos el equipo
@@ -93,6 +94,7 @@ export class EquiposComponent implements OnInit {
   eliminar(id: number) {
     this.equipoService.deleteEquipos(id).subscribe(data => {
       this.mensaje = 'Equipo eliminado con éxito';
+
       this.cargarEquipos();
     }, error => {
       this.mensaje = 'Error al eliminar equipo';

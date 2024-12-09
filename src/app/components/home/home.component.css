@@ -1,12 +1,46 @@
 .carousel-item img {
-    object-fit: cover;
-    height: 500px;   
-    width: 100%;       
-  }
-  
-  .carousel-inner {
-    max-height: 100%;
-  }
+  object-fit: cover;
+  height: 500px;
+  width: 100%;
+}
+
+.carousel-inner {
+  max-height: 100%;
+}
 
 
+#nosotros p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
 
+#nosotros h2 {
+  font-size: 2.5rem;
+}
+
+.img-nosotros {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+
+.servicios h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.servicios p {
+  line-height: 1.6;
+}
+
+.card {
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-body .btn-primary {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}

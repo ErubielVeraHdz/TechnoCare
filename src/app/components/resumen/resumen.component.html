@@ -1,22 +1,28 @@
+<<<<<<< HEAD
 <div class="resumen-container">
   
 
+=======
+<div class="resumen-container" *ngIf="user">
+>>>>>>> 7eec395b66aaa8a312fc9440d2fd0c3da69e7936
   <div class="breadcrumb-container">
     <div class="breadcrumb">
-      <h1>Bienvenido, {{user?.name}}</h1>
+      <h1>Bienvenido, {{ user.name }}</h1>
       <h2 class="resumen-header">Sistema de servicios técnicos</h2>
       <ul class="resumen-lista">
         <li class="resumen-item">
           <img src="equipos.png" alt="Icono de equipos" class="resumen-icono">
-          Resumen de equipos: 1
+          Resumen de equipos: {{ totalEquipos }}
         </li>
         <li class="resumen-item">
           <img src="clientes.png" alt="Icono de clientes" class="resumen-icono">
-          Resumen de clientes: 2
+          Resumen de clientes: {{ totalUsuarios }}
         </li>
         <li class="resumen-item">
           <img src="servicos.png" alt="Icono de servicios" class="resumen-icono">
-          Resumen de servicios semanales: 0
+          Resumen de servicios semanales: {{ totalReportes }}
         </li>
       </ul>
     </div>
+  </div>
+</div>
