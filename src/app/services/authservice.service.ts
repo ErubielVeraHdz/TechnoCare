@@ -24,6 +24,18 @@ export class AuthserviceService {
       })
     );
   }
+  getEquipos(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/equipos/`);
+  }
+
+  getUsuarios(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/usuarios/`);
+  }
+
+
+  getReportes(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/reportes/`);
+  }
 
   getLoggedInUser() {
     const user = localStorage.getItem('user');
