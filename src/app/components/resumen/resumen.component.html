@@ -1,18 +1,7 @@
-<div class="resumen-container">
-  <div class="sidebar">
-
-    <ul>
-      <li><a href="/resumen">Resumen</a></li>
-      <li><a href="/reportes">Reportes</a></li>
-      <li><a href="/clientes">Clientes</a></li>
-      <li><a href="/equipos">Equipos</a></li>
-      <li><a routerLink="/registrarusuario">Agregar usuario</a></li>
-      <li><a (click)="logout()">Cerrar sesión</a></li>
-    </ul>
-  </div>
+<div class="resumen-container" *ngIf="user">
   <div class="breadcrumb-container">
     <div class="breadcrumb">
-      <h1>Bienvenido, {{user?.name}}</h1>
+      <h1>Bienvenido, {{ user.name }}</h1>
       <h2 class="resumen-header">Sistema de servicios técnicos</h2>
       <ul class="resumen-lista">
         <li class="resumen-item">
@@ -29,3 +18,5 @@
         </li>
       </ul>
     </div>
+  </div>
+</div>

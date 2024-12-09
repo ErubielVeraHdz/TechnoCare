@@ -1,21 +1,42 @@
-header{
-    background-color: #240159;
-}
-/*BARRA DE NAVEGACIÓN */
-.navbar{
-    background-color: #240159 !important;
+.sidebar {
+    width: 200px;
+    background-color: #00264d;
+    color: white;
+    min-height: 100vh;
+    position: fixed;
+    top: 0; /* Ahora comienza desde la parte superior */
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para mejor visibilidad */
 }
 
-.navbar-nav {
-    padding: 1.5%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
-/*IMÁGENES */
-.img-1{
-    width: 5%;
-    height: auto;
-    display: flex;
+.sidebar ul li {
+    width: 100%;
 }
+
+.sidebar ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #005b96;
+    color: #e0f7fa; /* Cambia el color del texto al pasar el mouse */
+    font-weight: bold;
+}
+
