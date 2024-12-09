@@ -25,17 +25,10 @@
                 <a class="nav-link active" aria-current="page" href="#">INICIO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" routerLink="nosotros">NOSOTROS</a>
+                <a class="nav-link" (click)="scrollToSection('nosotros')">NOSOTROS</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" routerLinkActive="active" routerLink="servicios" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  SERVICIOS
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" routerLinkActive="active" routerLink="registrar-dispositivo">Registro de
-                      equipo</a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" (click)="scrollToSection('servicios')">SERVICIOS</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

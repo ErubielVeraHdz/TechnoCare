@@ -1,25 +1,30 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AuthserviceService } from '../../services/authservice.service';
-import { HeaderAdminComponent } from "../header-admin/header-admin.component";
 
 @Component({
   selector: 'app-resumen',
   standalone: true,
-  imports: [RouterLink],
+  imports: [CommonModule],
   templateUrl: './resumen.component.html',
   styleUrl: './resumen.component.css'
 })
-export class ResumenComponent {
-  user: any;
-  constructor(public authService: AuthserviceService, private router: Router) {}
+export class ResumenComponent implements OnInit {
+  user: any = null;
 
-  ngOnInit():void{
+  constructor(private authService: AuthserviceService) {}
+
+  ngOnInit(): void {
+    // Intenta cargar los datos del usuario desde el servicio
     this.user = this.authService.getLoggedInUser();
-  }
 
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/home']);
+    // Si no está disponible en el servicio, cargar desde localStorage
+    if (!this.user) {
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        this.user = JSON.parse(userData);
+      }
+    }
   }
 }
+

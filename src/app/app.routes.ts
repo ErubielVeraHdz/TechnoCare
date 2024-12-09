@@ -14,6 +14,7 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
 import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
     { path: "home", component: HomeComponent },
@@ -22,7 +23,7 @@ export const routes: Routes = [
     { path: "servicios", component: ServiciosComponent },
     { path: "registrarse", component: RegistrarseComponent },
     { path: "iniciar sesion", component: LoginComponent },
-    { path: "registrar-dispositivo", component: FomularioDispositivoComponent },
+    { path: "registrar-dispositivo", component: FomularioDispositivoComponent, canActivate: [AuthGuard] }, // Ruta protegida
     { path: "resumen", component: ResumenComponent },
     { path: "clientes", component: ClientesComponent },
     { path: "equipos", component: EquiposComponent },

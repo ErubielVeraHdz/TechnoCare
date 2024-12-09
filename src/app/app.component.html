@@ -1,6 +1,11 @@
-<app-header-menu></app-header-menu>
+<ng-container *ngIf="getUserRole() === 'Administrador'; else userHeader">
+  <app-header-admin></app-header-admin>
+</ng-container>
+<ng-template #userHeader>
+  <app-header-menu></app-header-menu>
+</ng-template>
 
 <main>
   <router-outlet></router-outlet>
-
 </main>
+

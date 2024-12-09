@@ -28,20 +28,22 @@ export class LoginComponent {
   }
 
   onLogin() {
-
     this.authService.login(this.loginForm.value.email, this.loginForm.value.contrasena).subscribe({
       next: (response) => {
-        const user = JSON.parse(localStorage.getItem('user') || '{}');
-        if (user.type === 'Administrador') {
+        // Guarda la información del usuario en localStorage
+        localStorage.setItem('user', JSON.stringify(response.user));
+        
+        // Redirige según el tipo de usuario
+        if (response.user.type === 'Administrador') {
           this.router.navigate(['/resumen']);
         } else {
-          this.router.navigate(['/home']);  // Cambia esta ruta por la adecuada para el cliente
+          this.router.navigate(['/home']);
         }
       },
       error: (error) => {
         this.errorMessage = error.error.mensaje || 'Error al iniciar sesión';
       },
     });
-  }  
+  }    
 }
 
