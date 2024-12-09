@@ -58,6 +58,9 @@ export class EquiposComponent implements OnInit {
       this.equipos = data;
     });
   }
+  enviarMail(){
+    this.equipoService.sendEmail
+  }
 
   guardar() {
     if (this.equipoEditar) {
@@ -91,6 +94,7 @@ export class EquiposComponent implements OnInit {
   eliminar(id: number) {
     this.equipoService.deleteEquipos(id).subscribe(data => {
       this.mensaje = 'Equipo eliminado con éxito';
+      this.equipoService.sendEmail;
       this.cargarEquipos();
     }, error => {
       this.mensaje = 'Error al eliminar equipo';
